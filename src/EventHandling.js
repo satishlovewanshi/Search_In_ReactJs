@@ -59,30 +59,31 @@ const search=()=>{
                     arr.map((cat)=>{
                         return(
                             <div>
-                                <ul>{cat}</ul>
+                            <ul>{cat}</ul>
                             {
-                                    data.map((items)=>{
+                                data.map((items)=>{
                                     if(cat==items.category){
-                                        let str=items.name
-                                        if(str.search(Key)>-1 && Search){
+                                        let str=items.name.toUpperCase()
+                                        if(str.search(Key.toUpperCase())>-1 && Search){
                                             return(
-                                               <div style={{marginLeft:"100px"}}>
-                                                   {
+                                            <div style={{marginLeft:"100px"}}>
+                                                {
                                                         items.stocked==false?
                                                         <p style={{color:"red"}}>{items.category==cat? items.name:""}</p>
                                                         :
                                                         <p>{items.category==cat ?items.name:""}</p>
-                                                   }
-                                               </div>
+                                                }
+                                            </div>
                                             )
                                         }
                                     }
-                                    })
+                                })
                             }
                             </div>
                         )
                     })
                 :
+                //this code run when not search
                     arr.map((cat)=>{
                         return(
                             <div>
